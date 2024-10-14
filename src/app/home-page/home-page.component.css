@@ -8,3 +8,8 @@ greenyellow
     background-color: rgb(169, 252, 45)
 
 }
+.logo {
+    margin-left: 15px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 300;
+}
