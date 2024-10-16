@@ -1,11 +1,24 @@
 <mat-toolbar>
     <mat-toolbar-row>
-        <mat-icon>home</mat-icon>
+        <button mat-button (click)="nav.toggle()"><mat-icon>menu</mat-icon></button>
         <div class="logo">
             Farm Fresh
         </div>
+        <div class="extra"></div>
     </mat-toolbar-row>
     
  
 </mat-toolbar>
+<mat-sidenav-container class="sidenav-wrapper">
+    <mat-sidenav #nav color="primary">
+        <button mat-button><mat-icon>home</mat-icon>
+        <span>Home</span>
+        </button>
+        <br>
+        <button mat-button><mat-icon>order</mat-icon>
+        <span>Cart</span>
+        </button>
+    </mat-sidenav>
+    <mat-sidenav-content>Main</mat-sidenav-content>
+  </mat-sidenav-container>
 
