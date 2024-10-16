@@ -16,23 +16,28 @@ height: 50px;
 }
 .sidenav-wrapper{
 position: absolute; 
-top:30px;
+top:50px;
 bottom:0;
  left: 0;
- right:0;
- background: rgb(190, 248, 103);
- 
+ right:0; 
 }
 mat-sidenav {
  width: 200px;
  padding: 20px;   
- background-color: green;
+ background-color: rgb(174, 231, 197);
 }
 mat-sidenav-content {
  display: flex;
  justify-content: center;
- align-items: center;   
+ align-items: center;
+ background-color: rgb(238, 243, 147)  
 }
 .extra {
     flex: 1 1 auto;
+}
+
+.nav-button{
+    width: 100%;
+    align-items: left;
+    justify-content: left;
 }
