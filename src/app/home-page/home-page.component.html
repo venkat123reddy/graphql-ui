@@ -5,7 +5,11 @@
             Farm Fresh
         </div>
         <div class="extra"></div>
-        <button><mat-icon>account_box</mat-icon></button>
+        <button (click)="userprofile()">
+            <a routerLink="/user-profile">
+                <mat-icon>account_box</mat-icon>
+            </a>
+        </button>
     </mat-toolbar-row>
     
  
@@ -31,5 +35,8 @@
         
     </mat-sidenav>
     <mat-sidenav-content>Main</mat-sidenav-content>
+    <mat-drawer-container class="red">
+        <div>venkata</div>
+    </mat-drawer-container>
   </mat-sidenav-container>
 

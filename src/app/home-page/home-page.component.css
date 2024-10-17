@@ -1,8 +1,7 @@
 mat-toolbar {
     color: #000
     ;
-    background-color:
-greenyellow;
+    background-color:greenyellow;
 height: 50px;
 }
 .toolbar-row2 {
@@ -25,13 +24,16 @@ mat-sidenav {
  width: 200px;
  padding: 20px;   
  background-color: rgb(174, 231, 197);
+
 }
 mat-sidenav-content {
  display: flex;
  justify-content: center;
  align-items: center;
- background-color: rgb(238, 243, 147)  
-}
+ background-color: rgb(238, 243, 147);  
+ /*background-image: url('F:\UCM\Projects\Adb_project\graphql-ui\src\assets\home-page.jpg');
+*/
+ }
 .extra {
     flex: 1 1 auto;
 }
@@ -40,4 +42,11 @@ mat-sidenav-content {
     width: 100%;
     align-items: left;
     justify-content: left;
+}
+.red {
+    background-color: red;
+}
+.mat-drawer-backdrop.mat-drawer-shown {
+    /* visibility: visible; */
+    background-color: #40ff6a;
 }
