@@ -1,40 +1,51 @@
 <mat-toolbar>
-    <mat-toolbar-row>
-        <button mat-button-icon (click)="nav.toggle()"><mat-icon>menu</mat-icon></button>
+    <mat-toolbar-row >
+        <button mat-icon-button (click)="sideNave()"><mat-icon>menu</mat-icon></button>
         <div class="logo">
             Farm Fresh
         </div>
         <div class="extra"></div>
-        <button (click)="userprofile()">
-            <a routerLink="/user-profile">
-                <mat-icon>account_box</mat-icon>
-            </a>
+        <div>
+            <button mat-icon-button >
+                <mat-icon matBadge="0" >shopping_cart</mat-icon>
         </button>
+        </div>
+      
     </mat-toolbar-row>
     
  
 </mat-toolbar>
 <mat-sidenav-container class="sidenav-wrapper">
-    <mat-sidenav #nav color="primary">
+    <mat-sidenav opened="{{isSideNav}}" color="primary" mode="push">
         <div style="padding-bottom: 10px;">
-            <button mat-button class="nav-button"><mat-icon>home</mat-icon>
+            <a [routerLink]="['']">
+            <button mat-button class="nav-button" (click)="sideNave()">
+                
+                <mat-icon>home</mat-icon>
                 <span>Home</span>
-                </button>
+            </button>
+        </a>
         </div>
         <div style="padding-bottom: 10px;">
-            <button mat-button class="nav-button"><mat-icon>shop</mat-icon>
+            <a [routerLink]="['/products-view']">
+            <button mat-button class="nav-button" (click)="sideNave()" ><mat-icon>shop</mat-icon>
                 <span>Shop</span>
         </button>
+             </a>
         </div>
         <div style="padding-bottom: 10px;">
-            <button mat-button class="nav-button"><mat-icon>dashboard</mat-icon>
+            <a [routerLink]="['/view-orders']">
+            <button mat-button class="nav-button" (click)="sideNave()"><mat-icon>dashboard</mat-icon>
                 <span>View Orders</span>
         </button>
+    </a>
         </div>
         
         
     </mat-sidenav>
-    <mat-sidenav-content>Main</mat-sidenav-content>
+    <mat-sidenav-content>
+    <router-outlet></router-outlet>    
+    </mat-sidenav-content>
     <mat-drawer-container class="red">
         <div>venkata</div>
     </mat-drawer-container>

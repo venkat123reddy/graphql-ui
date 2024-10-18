@@ -50,3 +50,8 @@ mat-sidenav-content {
     /* visibility: visible; */
     background-color: #40ff6a;
 }
+
+.shopping-cart {
+    height: 30px;
+    width:30px;
+}

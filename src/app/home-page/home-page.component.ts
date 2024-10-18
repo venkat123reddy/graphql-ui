@@ -5,18 +5,23 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatButtonModule} from '@angular/material/button';
 import {MatDialogModule,MatDialog} from '@angular/material/dialog';
-
+import { RouterLink,RouterOutlet } from '@angular/router';
+import {MatBadgeModule} from '@angular/material/badge';
 @Component({
   selector: 'app-home-page',
   standalone: true,
-  imports: [MatToolbarModule,MatIconModule,MatSidenavModule,MatButtonModule,MatDialogModule],
+  imports: [ MatBadgeModule,RouterOutlet,RouterLink,MatToolbarModule,MatIconModule,MatSidenavModule,MatButtonModule,MatDialogModule],
   templateUrl: './home-page.component.html',
   styleUrl: './home-page.component.css'
 })
 export class HomePageComponent {
-
+  isSideNav:boolean;
   constructor(private dialog :MatDialog){
+this.isSideNav = false;
+  }
 
+  sideNave(){
+    this.isSideNav = ! this.isSideNav;
   }
 
   userprofile() {
