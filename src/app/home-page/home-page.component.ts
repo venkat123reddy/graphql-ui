@@ -1,3 +1,4 @@
+import { ProductsCartComponent } from './../products-cart/products-cart.component';
 import { UserProfileComponent } from './../user-profile/user-profile.component';
 import { Component } from '@angular/core';
 import {MatToolbarModule} from '@angular/material/toolbar';
@@ -18,6 +19,10 @@ export class HomePageComponent {
   isSideNav:boolean;
   constructor(private dialog :MatDialog){
 this.isSideNav = false;
+  }
+
+  cartCheck() {
+    this.dialog.open(ProductsCartComponent);
   }
 
   sideNave(){

@@ -1,0 +1,16 @@
+.products-view{
+    padding: 75px;
+}
+.column1{
+    float: left;
+    width: 30%;
+    height: 200px;
+    background-color: green;
+    margin: 15px;
+    border-radius: 2px;
+}
+.product{
+    width: 15%;
+    float: left;
+    margin: 15px;
+}

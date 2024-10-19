@@ -26,15 +26,16 @@ mat-sidenav {
  background-color: rgb(174, 231, 197);
 
 }
-mat-sidenav-content {
+/* mat-sidenav-content {
  display: flex;
  justify-content: center;
  align-items: center;
- background-color: rgb(238, 243, 147);  
- /*background-image: url('F:\UCM\Projects\Adb_project\graphql-ui\src\assets\home-page.jpg');
-*/
- }
-.extra {
+ height: 100%;
+ width: 100%;
+ } */
+
+
+ .extra {
     flex: 1 1 auto;
 }
 
