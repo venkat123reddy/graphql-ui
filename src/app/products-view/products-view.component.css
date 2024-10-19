@@ -14,3 +14,13 @@
     float: left;
     margin: 15px;
 }
+.product-actions {
+    background-color: rgb(70, 241, 70);
+    margin-right: 5px;
+    width: 50%;
+}
+.inp {
+    height: 30px;
+    margin-right: 5px;
+    width: 50%;
+}
