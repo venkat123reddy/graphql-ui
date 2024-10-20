@@ -1,5 +1,9 @@
 .products-view{
-    padding: 75px;
+    position: absolute;
+    background-color:rgb(140, 255, 138);
+    display: block;
+    margin-left: 100px;
+    width: 100%;
 }
 .column1{
     float: left;
@@ -9,8 +13,11 @@
     margin: 15px;
     border-radius: 2px;
 }
+.extra {
+    flex: 1 1 auto;
+}
 .product{
-    width: 15%;
+    width: 25%;
     float: left;
     margin: 15px;
 }
