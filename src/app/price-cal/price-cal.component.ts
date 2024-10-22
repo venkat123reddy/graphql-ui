@@ -1,10 +1,14 @@
 import { Component,Inject } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import {Product} from '../products-view/Product'
+import {MatCardModule} from '@angular/material/card';
+import {MatButtonModule} from '@angular/material/button';
+import {MatInputModule} from '@angular/material/input';
+import {MatFormFieldModule} from '@angular/material/form-field';
 @Component({
   selector: 'app-price-cal',
   standalone: true,
-  imports: [],
+  imports: [MatCardModule,MatButtonModule,MatInputModule,MatFormFieldModule],
   templateUrl: './price-cal.component.html',
   styleUrl: './price-cal.component.css'
 })
