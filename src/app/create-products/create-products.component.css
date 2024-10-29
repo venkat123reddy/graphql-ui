@@ -1,0 +1,22 @@
+.create-product {
+    background-color: red;
+    display: block;
+    width: 250px;
+    height: 100%;
+    padding-left: 100px;
+    border-color: black;
+}
+
+.header{
+    background-color: rgb(105, 105, 216);
+    display: flex;
+}
+
+.selectors {
+    
+    width: 100%;
+    background-color: green;
+}
+.content {
+    display: grid;
+}

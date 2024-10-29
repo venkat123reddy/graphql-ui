@@ -1,1 +1,29 @@
-<p>create-products works!</p>
+<div class="create-product">
+    <div class="header">
+        <label>Add Product</label>
+    </div>
+    <div class="content">
+        <div class="selectors" >
+            <select [(ngModel)]="product.name" style="float: right; width: 100%;">
+                <option *ngFor="let fr of fruits">{{fr}}</option>
+            </select>
+            <br>
+            <select [(ngModel)]="product.type">
+                <option value="vegatable">Vegetable</option>
+                <option value="fruits">Fruits</option>
+            </select>
+        </div>
+        <div>
+            <input type="number" [(ngModel)]="product.quantity"placeholder="quantity">
+            <br>
+            <input type="number" [(ngModel)]="product.cost" placeholder="cost">
+        </div>
+        <div>
+            <input type="date" [(ngModel)]="product.expiryDate">
+        </div>
+        <div>
+            <button style="width:100%" (click)="submit()">Add</button>
+        </div>
+    </div>
+
+</div>
