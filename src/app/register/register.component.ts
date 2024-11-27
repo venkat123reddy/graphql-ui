@@ -2,11 +2,11 @@ import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { UserServiceService } from '../user-service.service';
-import { RouterOutlet } from '@angular/router';
+import {MatDialogModule,MatDialog, MatDialogRef} from '@angular/material/dialog';
 @Component({
   selector: 'app-register',
   standalone: true,
-  imports: [FormsModule,RouterOutlet,CommonModule],
+  imports: [FormsModule,CommonModule],
   templateUrl: './register.component.html',
   styleUrl: './register.component.css'
 })
@@ -21,9 +21,18 @@ export class RegisterComponent {
     password:'',
     customerType:''
   };
+  isSubmit:boolean=false;
 
-  constructor(private userService:UserServiceService) {
+  constructor(private userService:UserServiceService,
+    private dialogRef: MatDialogRef<RegisterComponent>
+  ) {
 
+  }
+
+  login() {
+
+    this.dialogRef.close({data:{status:true}});
+    
   }
 
   submitForm(form: any): void {
@@ -32,6 +41,7 @@ export class RegisterComponent {
     if (form.valid) {
       console.log('Form data:', this.userDetails);
     }
+    this.isSubmit=true;
   }
   api() {
     this.userService.getHttp();

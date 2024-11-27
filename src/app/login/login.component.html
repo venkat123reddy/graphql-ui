@@ -7,11 +7,11 @@
    <span>{{errorFlag}}</span>
   </div>
     <mat-form-field class="field">
-        <mat-label>User Name</mat-label>
+        <mat-label style="font-weight: 900;">User Name</mat-label>
         <input matInput [(ngModel)]="user.userName">
-      </mat-form-field>
+    </mat-form-field>
       <br>
-      <mat-form-field>
+      <mat-form-field class="field">
         <mat-label>Customer Type</mat-label>
         <mat-select [(ngModel)]="user.customerType">
           <mat-option value="Wholesale">Wholesale</mat-option>
@@ -19,12 +19,12 @@
         </mat-select>
       </mat-form-field>
       <br>
-      <mat-form-field>
+      <mat-form-field class="field">
         <mat-label>Password</mat-label>
         <input matInput type="password" [(ngModel)]="user.password">
       </mat-form-field>
       <br>
       <button style="width: 100%;height: 45px;"  (click)="login()">Login</button>
-      <button style="width: 100%;height: 45px;margin-top: 20px;">Register</button>
+      <!-- <button style="width: 100%;height: 45px;margin-top: 20px;">Register</button> -->
 </div>
 

@@ -56,3 +56,21 @@ mat-sidenav {
     height: 30px;
     width:30px;
 }
+
+
+.home-intro {
+    height: 225px;
+    background-color: rgb(157, 248, 157);
+    padding-top: 40px;
+    padding-left: 10px;
+    border-radius: 10px;
+    border-color: black;
+    border-style: solid;
+    margin: 75px;
+}
+.home-intro-bottom {
+    margin-top: 30px;
+    display: flex;
+    /*flex-direction: column;  Arranges items vertically */
+    gap: 10px; /* Optional: adds space between the items */
+}

@@ -8,6 +8,11 @@ export class UserServiceService {
   uservalidations:boolean=false;
   constructor(private http:HttpClient) { }
 
+
+  createProduct() {
+    
+  }
+
   getHttp() {
     console.log('venkata')
    let data = this.http.get<Response>('http://localhost:8080/profile/test')

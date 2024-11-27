@@ -1,6 +1,12 @@
-<router-outlet></router-outlet> 
 <div class="container">
-    <h2 class="heading">Template Driven Form</h2>
+  <div *ngIf="isSubmit==true">
+    <span> Profile is created Successfully  </span>
+    <button class="btn btn-success" (click)="login()">
+      CLICK HERE TO LOGIN!
+    </button>
+  </div>
+  <div *ngIf="isSubmit==false">
+    <h2 class="heading">Registration Form</h2>
     <form #userForm="ngForm" (ngSubmit)="submitForm(userForm)">
    
       <div class="form-group">
@@ -55,6 +61,7 @@
         </div>
       </div>
 
-      <button type="submit" class="btn btn-primary" style="width:100%;margin-top: 20px;">Submit</button>
+      <button type="submit" class="btn btn-success" style="width:100%;margin-top: 20px;">Submit</button>
     </form>
+  </div>
   </div>

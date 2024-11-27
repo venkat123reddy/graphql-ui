@@ -1,6 +1,7 @@
+import { ProductBill } from './../models/ProductBill';
 import { ProductsCartComponent } from './../products-cart/products-cart.component';
 import { UserProfileComponent } from './../user-profile/user-profile.component';
-import { Component } from '@angular/core';
+import { Component, Injectable } from '@angular/core';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatIconModule} from '@angular/material/icon';
 import {MatSidenavModule} from '@angular/material/sidenav';
@@ -10,6 +11,9 @@ import { RouterLink,RouterOutlet } from '@angular/router';
 import {MatBadgeModule} from '@angular/material/badge';
 import { LoginComponent } from '../login/login.component';
 import { CommonModule } from '@angular/common';
+import { RegisterComponent } from '../register/register.component';
+import { Console } from 'console';
+
 @Component({
   selector: 'app-home-page',
   standalone: true,
@@ -17,11 +21,16 @@ import { CommonModule } from '@angular/common';
   templateUrl: './home-page.component.html',
   styleUrl: './home-page.component.css'
 })
+@Injectable({
+  providedIn: 'root' // This makes the service available globally
+})
 export class HomePageComponent {
   isSideNav:boolean;
   isLogged:boolean;
   userid:string;
   userLogger:boolean=false;
+  isregis :boolean=false;
+  cartList:ProductBill[] = [];
   constructor(private dialog :MatDialog){
 this.isSideNav = false;
 this.isLogged = false;
@@ -40,6 +49,7 @@ this.userid = '';
     this.dialog.open(UserProfileComponent)
   }
   login() {
+    this.addProduct(new ProductBill())
     this.dialog.open(LoginComponent)
     .afterClosed()
     .subscribe(res=>{
@@ -50,6 +60,20 @@ this.userid = '';
       console.log(this.userid);
     })
   }
+  register() {
+    this.dialog.open(RegisterComponent)
+    .afterClosed()
+    .subscribe( res=> {
+      this.isregis= true;
+    }
+    )
+  }
+
+  addProduct(productBill:ProductBill) {
+    this.cartList.push(productBill);
+    console.log(this.cartList.length)
+  }
+
 
 
 }

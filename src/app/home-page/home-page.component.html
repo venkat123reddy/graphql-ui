@@ -6,21 +6,15 @@
         </div>
         <div class="extra"></div>
         <div>
-            <button mat-icon-button (click)="login()" >
-                <mat-icon>login</mat-icon>
-        </button>
-        </div>
-        <div *ngIf="isLogged==true">
             <button mat-icon-button (click)="cartCheck()" >
-                <mat-icon aria-hidden="false" matBadge="0" >shopping_cart</mat-icon>
+                <mat-icon aria-hidden="false" matBadge={{cartList.length}} >shopping_cart</mat-icon>
         </button>
         </div>
 
-        <div *ngIf="isLogged==true">
+        <div>
             <button mat-icon-button  >
                 <mat-icon>account_box</mat-icon>
         </button>
-
         </div>
       
     </mat-toolbar-row>
@@ -84,12 +78,29 @@
     </mat-sidenav>
     <mat-sidenav-content>
         <div *ngIf="isLogged==false">
-            <div style="height: 450px;background-color: rgb(157, 248, 157);padding-top: 20px;">
+            <div class="home-intro">
                 <div>🌱 <b>Welcome to Farm Fresh!</b> 🌱</div>
                 <div>
                     Your One-Stop Shop for Farm-Fresh Goodness!
                     Bringing the best of local farms straight to your door. Fresh, organic, and healthy produce delivered with just a click!
                 </div>
+                <div class="home-intro-bottom">
+
+                    <div>
+                        <button mat-flat-button (click)="login()" >
+                            Login
+                    </button>
+                    </div>
+    
+                    <div *ngIf="isregis==false">
+                        <button mat-flat-button (click)="register()" >
+                            Register
+                    </button>
+                    </div>
+
+
+                </div>
+               
             </div>
 
         </div>

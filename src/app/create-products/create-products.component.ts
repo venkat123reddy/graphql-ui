@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { AddProduct } from './AddProduct';
 import { FormsModule } from '@angular/forms';
+import { ProductServiceService } from '../product-service.service';
 
 @Component({
   selector: 'app-create-products',
@@ -12,13 +13,24 @@ import { FormsModule } from '@angular/forms';
 })
 export class CreateProductsComponent {
 
-  fruits :String [] = ["apple","bannana","orange"]
-  vegratable:String [] = ["chilly","cabage"]
+  fruits :String [] = ["apple","bannana","orange","other"]
+  vegratable:String [] = ["chilly","cabage",]
   product: AddProduct = new AddProduct(); 
+  status:boolean=true;
+
+  constructor(private productService:ProductServiceService) {
+
+  }
+  add() {
+    this.status = true;
+  }
 
   submit()
   {
-    console.log(this.product.name);
+    console.log(this.product);
+    this.productService.createProduct(this.product);
+    this.product = new AddProduct();
+    this.status = false;
   }
 
 }

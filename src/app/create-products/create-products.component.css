@@ -1,22 +1,25 @@
 .create-product {
-    background-color: red;
-    display: block;
-    width: 250px;
-    height: 100%;
-    padding-left: 100px;
+    background-color: rgb(127, 242, 112);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap:10px;
+    width: 300px;
     border-color: black;
+    margin-left: 175px;
+    margin-top: 100px;
+    border: 1.5px solid black;
+    
 }
 
 .header{
-    background-color: rgb(105, 105, 216);
-    display: flex;
+    background-color: rgb(9, 225, 95);
 }
 
-.selectors {
-    
-    width: 100%;
-    background-color: green;
-}
+
 .content {
-    display: grid;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
 }

@@ -1,3 +1,10 @@
 .container {
     padding: 50px;
+
+}
+h2 {
+    color: green;
+}
+label {
+    color: green;
 }

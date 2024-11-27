@@ -2,24 +2,30 @@
     <div class="header">
         <label>Add Product</label>
     </div>
-    <div class="content">
+    <div *ngIf="status==false">
+        <span>Product Created Succesfully</span>
+        <button class="btn btn-primary" (click)="add()">CLICK HERE TO ADD OTHER</button>
+    </div>
+    <div class="content" *ngIf="status==true">
         <div class="selectors" >
             <select [(ngModel)]="product.name" style="float: right; width: 100%;">
-                <option *ngFor="let fr of fruits">{{fr}}</option>
+                <option *ngFor="let fr of fruits" selected>{{fr}}</option>
             </select>
-            <br>
+            </div>
+        <div>
             <select [(ngModel)]="product.type">
                 <option value="vegatable">Vegetable</option>
                 <option value="fruits">Fruits</option>
             </select>
         </div>
         <div>
-            <input type="number" [(ngModel)]="product.quantity"placeholder="quantity">
-            <br>
-            <input type="number" [(ngModel)]="product.cost" placeholder="cost">
+            <input type="number" [(ngModel)]="product.quantity"placeholder="quantity" placeholder="Quantity">
+        </div>
+            <div>
+            <input type="number" [(ngModel)]="product.cost" placeholder="cost" placeholder="Cost">
         </div>
         <div>
-            <input type="date" [(ngModel)]="product.expiryDate">
+            <input type="date" [(ngModel)]="product.expiryDate" style="width: 100%;">
         </div>
         <div>
             <button style="width:100%" (click)="submit()">Add</button>

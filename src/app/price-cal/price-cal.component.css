@@ -1,3 +1,28 @@
 .dialog {
-    
+    height: 300px;
+    width: 300px;
+    border-color: black;
+    border-style: solid;
+    /* background-color: rgb(58, 203, 97); */
+    border: 2.5px solid black;
+}
+
+.header {
+    font-weight: 750;
+    font-size: large;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    background-color: rgb(58, 203, 97);
+    align-items: center;
+
+}
+
+.card-content {
+
+    display: flex;
+    gap: 5px;
+    padding-top: 10px;
+}
+
+table td {
+    border-bottom: 0.9px dotted rgb(41, 250, 13);
 }
