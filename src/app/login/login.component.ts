@@ -9,6 +9,7 @@ import { UserServiceService } from '../user-service.service';
 import { HomePageComponent } from "../home-page/home-page.component";
 import { Router } from '@angular/router';
 import {MatDialogModule,MatDialog, MatDialogRef} from '@angular/material/dialog';
+import { CurrentUser } from '../CurrentUser';
 @Component({
   selector: 'app-login',
   standalone: true,
@@ -28,7 +29,8 @@ export class LoginComponent {
   constructor(private userService:UserServiceService,
               private router:Router,
               private dialog :MatDialog,
-              private dialogRef: MatDialogRef<LoginComponent>
+              private dialogRef: MatDialogRef<LoginComponent>,
+              private currentUser:CurrentUser
   ) {
 
   }
@@ -42,6 +44,7 @@ login() {
   }
   else {
   this.errorFlag="Success"
+  this.currentUser.setDetails(this.user.customerType,this.user.userName);
   this.dialogRef.close({data:this.user})
   }
   console.log(this.user)

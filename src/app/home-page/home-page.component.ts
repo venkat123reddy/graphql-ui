@@ -13,6 +13,7 @@ import { LoginComponent } from '../login/login.component';
 import { CommonModule } from '@angular/common';
 import { RegisterComponent } from '../register/register.component';
 import { Console } from 'console';
+import { ProductCarts } from '../ProductCarts';
 
 @Component({
   selector: 'app-home-page',
@@ -31,14 +32,17 @@ export class HomePageComponent {
   userLogger:boolean=false;
   isregis :boolean=false;
   cartList:ProductBill[] = [];
-  constructor(private dialog :MatDialog){
+  customerType:string=''
+  constructor(private dialog :MatDialog,
+    public prodcart:ProductCarts
+  ){
 this.isSideNav = false;
 this.isLogged = false;
 this.userid = '';
   }
 
   cartCheck() {
-    this.dialog.open(ProductsCartComponent);
+    this.dialog.open(ProductsCartComponent,{data:this.prodcart.productBill});
   }
 
   sideNave(){
@@ -56,6 +60,7 @@ this.userid = '';
       console.log("--info--")
       this.isLogged = true;
       this.userid = res.data.userName;
+      this.customerType= res.data.customerType;
       console.log(res.data);
       console.log(this.userid);
     })

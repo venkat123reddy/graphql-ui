@@ -1,5 +1,8 @@
 export class Product {
-    name : String="";
-    id : String="";
-    cost:Number=10;
+    userId:string='';
+    productName: string='';
+    productType: string='';
+    productCost: number=0;
+    productQuantity:number=0;
+    productExpiryDate: string=''
 }

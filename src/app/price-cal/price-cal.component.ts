@@ -9,6 +9,7 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { ProductBill } from '../models/ProductBill';
+import { ProductCarts } from '../ProductCarts';
 @Component({
   selector: 'app-price-cal',
   standalone: true,
@@ -24,10 +25,11 @@ export class PriceCalComponent {
   constructor(
     public dialogRef: MatDialogRef<PriceCalComponent>,
     @Inject(MAT_DIALOG_DATA) public data:Product,
-  private home:HomePageComponent ) {
+  private home:HomePageComponent,
+ private prodcart:ProductCarts ) {
       this.quantity = 0;
-      this.cost =  data.cost.valueOf();
-      this.productName = data.name.toString();
+      this.cost =  data.productCost.valueOf();
+      this.productName = data.productName.toString();
     }
 
     add() {
@@ -36,6 +38,7 @@ export class PriceCalComponent {
       productBill.productName = this.productName;
       productBill.productCount = this.quantity;
       this.home.addProduct(productBill);
+      this.prodcart.add(productBill);
       this.dialogRef.close({data:productBill})
     } 
 

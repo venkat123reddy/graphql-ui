@@ -7,6 +7,7 @@ import {MatInputModule} from '@angular/material/input';
 import { Product } from './Product';
 import { CommonModule } from '@angular/common';
 import {MatDialogModule,MatDialog} from '@angular/material/dialog';
+import { ProductServiceService } from '../product-service.service';
 @Component({
   selector: 'app-products-view',
   standalone: true,
@@ -16,15 +17,23 @@ import {MatDialogModule,MatDialog} from '@angular/material/dialog';
   schemas: [NO_ERRORS_SCHEMA]
 })
 export class ProductsViewComponent {
-  products:Product[] = [{"id":"123","name":"potato","cost":5},
-    {"id":"123","name":"tamoto","cost":5},
-    {"id":"123","name":"egg","cost":2},
-    {"id":"123","name":"bringal","cost":1},
-    {"id":"123","name":"carrot","cost":2},
-    {"id":"123","name":"beans","cost":3},
-    {"id":"123","name":"beans","cost":3}
-  ]
-  constructor(private dialog :MatDialog){
+  products:Product[] = []
+  
+  // [{"id":"123","name":"potato","cost":5},
+  //   {"id":"123","name":"tamoto","cost":5},
+  //   {"id":"123","name":"egg","cost":2},
+  //   {"id":"123","name":"bringal","cost":1},
+  //   {"id":"123","name":"carrot","cost":2},
+  //   {"id":"123","name":"beans","cost":3},
+  //   {"id":"123","name":"beans","cost":3}
+  //]
+
+  constructor(private dialog :MatDialog,
+         private productService:ProductServiceService)
+  {
+    this.products=this.productService.getProducts()
+    console.log("constuctor")
+    console.log(this.products);
 
   }
  

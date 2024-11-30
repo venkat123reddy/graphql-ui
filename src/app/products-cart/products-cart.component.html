@@ -1,1 +1,79 @@
-<p>products-cart works!</p>
+<div class="container container1 card" *ngIf="paymentInitiation==false">
+    <div class="cart-header">
+       <h2>CART CHECKOUT</h2> 
+    </div>
+    <div class="cart-content">
+
+        <table style="width: 100%;">
+            <tr>
+                <th>Product</th>
+                <th>Quantity</th>
+                <th>Price</th>
+            </tr>
+            <tr *ngFor="let prod of productBills">
+                <td>{{prod.productName}}</td>
+                <td>{{prod.productCount}}</td>
+                <td>{{prod.productCost}} $</td>
+            </tr>
+            <tr>
+                <td>TOTAL BILL..</td>
+                <td>0.0 $</td>
+            </tr>
+        </table>
+    </div>
+    <div class="cart-footer">
+        <button class="btn btn-success" (click)="addPayment()">Proceed to Payment</button>
+    </div>
+
+</div>
+<div *ngIf="paymentInitiation==true">
+    
+    <div class="container card-payment-container">
+        <div class="card">
+            <h3 class="card-title text-center">Payment Information</h3>
+            <form>
+                <!-- Card Number -->
+                <div class="mb-3">
+                    <label for="cardNumber" class="form-label" style="color: green;">Card Number</label>
+                    <input type="text" class="form-control" id="cardNumber">
+                </div>
+
+                <!-- Cardholder Name -->
+                <div class="mb-3">
+                    <label for="cardholderName" class="form-label" style="color: green;">Cardholder Name</label>
+                    <input type="text" class="form-control" id="cardholderName">
+                </div>
+
+                <!-- Expiration Date and CVV -->
+                <div class="row mb-3">
+                    <div class="col-6">
+                        <label for="expiryDate" class="form-label" style="color: green;">Expiration Date</label>
+                        <input type="month" class="form-control" id="expiryDate">
+                    </div>
+                    <div class="col-6">
+                        <label for="cvv" class="form-label" style="color: green;">CVV</label>
+                        <input type="password" class="form-control" id="cvv">
+                    </div>
+                </div>
+
+                <!-- Billing Address -->
+                <div class="mb-3">
+                    <label for="billingAddress" class="form-label" style="color: green;">Billing Address</label>
+                    <input type="text" class="form-control" id="billingAddress">
+                </div>
+
+                <!-- Payment Button -->
+                <div class="d-grid gap-2">
+                    <button  class="btn btn-success" (click)="createOrder()">Pay Now</button>
+                </div>
+            </form>
+        </div>
+
+
+
+</div>
+</div>
+<div>
+    Order Placed Successfully !
+</div>
+

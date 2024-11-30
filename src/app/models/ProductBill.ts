@@ -1,5 +1,5 @@
 export class ProductBill{
-    productName:string | undefined;
+    productName:string=''
     productCost:number | undefined;
     productCount: number| undefined;
     producBill:number| undefined;

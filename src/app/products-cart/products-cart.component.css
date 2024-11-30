@@ -1,0 +1,54 @@
+/* .container1 {
+    border: 1.5 solid green;
+    margin: 15px;
+    width: 100%;
+    overflow: hidden;
+} */
+h2 {
+    color: green;
+}
+
+h3 {
+    color:green;
+}
+
+tr {
+    border-bottom: 1px dotted black;
+}
+
+.cart-header {
+    margin-top: 25px;
+    margin-bottom: 30px;
+}
+.cart-footer {
+    margin-top: 20px;
+    margin-bottom: 15px;
+    display: flex;
+    flex-direction: end;
+}
+
+.cart-content {
+    width: 100%;
+    overflow: hidden;
+
+}
+
+.card-payment-container {
+
+    margin: 35px auto;
+}
+
+.container1 {
+    margin: 35px auto;
+    max-width: 350px;
+}
+
+.card {
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.card-title {
+    margin-bottom: 20px;
+}

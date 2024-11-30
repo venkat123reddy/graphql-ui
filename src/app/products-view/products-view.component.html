@@ -2,11 +2,12 @@
     <div *ngFor="let product of products">
     <mat-card class="product">
         <mat-card-header style="display:flex;background-color:  rgb(101, 237, 101);padding: 5px;">
-            <mat-card-title>Green 10$
+            <mat-card-title>{{product.productName}}
             </mat-card-title>
             <div class="extra"></div>
             <button mat-raised-button (click)="addProduct(product)" style="background-color: rgb(5, 246, 5);">Add</button>
         </mat-card-header>
+        
         <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
         
         <!-- <mat-card-actions>
