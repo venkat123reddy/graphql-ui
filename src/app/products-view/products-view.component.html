@@ -1,8 +1,18 @@
+<div>
+
+    <div *ngIf="products.length==0">
+        <span class="btn btn-danger">PRODUCTS NOT AVAILABLE ! PLEASE LOGIN AFTER SOME TIME</span>
+    </div>
+
+</div>
+
 <div class="products-view">
+    
     <div *ngFor="let product of products">
     <mat-card class="product">
         <mat-card-header style="display:flex;background-color:  rgb(101, 237, 101);padding: 5px;">
-            <mat-card-title>{{product.productName}}
+            <mat-card-title>{{product.productName}} 
+                {{product.productCost}} $
             </mat-card-title>
             <div class="extra"></div>
             <button mat-raised-button (click)="addProduct(product)" style="background-color: rgb(5, 246, 5);">Add</button>

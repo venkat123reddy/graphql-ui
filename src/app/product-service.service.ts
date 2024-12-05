@@ -18,13 +18,13 @@ export class ProductServiceService {
   }
 
   getProducts() {
-    this.http.get<any>('http://localhost:8080/product/get')
-    .subscribe(data=>{
-      this.products=data;
-    })
+     return this.http.get<any>('http://localhost:8080/product/get')
+     .toPromise();
+  }
 
-    return this.products;
-
+  getProductsByUser(user:any) {
+    return this.http.get<any>('http://localhost:8080/product/get/'+user)
+     .toPromise();
   }
 
   

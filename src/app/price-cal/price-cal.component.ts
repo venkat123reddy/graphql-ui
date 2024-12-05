@@ -13,7 +13,7 @@ import { ProductCarts } from '../ProductCarts';
 @Component({
   selector: 'app-price-cal',
   standalone: true,
-  imports: [HomePageComponent,FormsModule,CommonModule,MatCardModule,MatButtonModule,MatInputModule,MatFormFieldModule],
+  imports: [FormsModule,CommonModule,MatCardModule,MatButtonModule,MatInputModule,MatFormFieldModule],
   templateUrl: './price-cal.component.html',
   styleUrl: './price-cal.component.css'
 })
@@ -22,6 +22,7 @@ export class PriceCalComponent {
   quantity:number;
   cost:number;
   productName:string;
+  productOwner:string=''
   constructor(
     public dialogRef: MatDialogRef<PriceCalComponent>,
     @Inject(MAT_DIALOG_DATA) public data:Product,
@@ -30,6 +31,7 @@ export class PriceCalComponent {
       this.quantity = 0;
       this.cost =  data.productCost.valueOf();
       this.productName = data.productName.toString();
+      this.productOwner = data.userId;
     }
 
     add() {

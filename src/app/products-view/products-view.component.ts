@@ -28,13 +28,18 @@ export class ProductsViewComponent {
   //   {"id":"123","name":"beans","cost":3}
   //]
 
-  constructor(private dialog :MatDialog,
+   constructor(private dialog :MatDialog,
          private productService:ProductServiceService)
   {
-    this.products=this.productService.getProducts()
+    // this.products= await this.productService.getProducts()
+    this.getProd();
     console.log("constuctor")
     console.log(this.products);
 
+  }
+
+  async getProd() {
+    this.products= await this.productService.getProducts() 
   }
  
 

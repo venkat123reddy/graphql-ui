@@ -1,3 +1,5 @@
+import { Product } from './../products-view/Product';
+import { CurrentUser } from './../CurrentUser';
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { AddProduct } from './AddProduct';
@@ -18,7 +20,9 @@ export class CreateProductsComponent {
   product: AddProduct = new AddProduct(); 
   status:boolean=true;
 
-  constructor(private productService:ProductServiceService) {
+  constructor(private productService:ProductServiceService,
+              private CurrentUser:CurrentUser 
+  ) {
 
   }
   add() {
@@ -28,6 +32,7 @@ export class CreateProductsComponent {
   submit()
   {
     console.log(this.product);
+    this.product.userId = this.CurrentUser.userId;
     this.productService.createProduct(this.product);
     this.product = new AddProduct();
     this.status = false;

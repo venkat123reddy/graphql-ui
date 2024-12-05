@@ -1,3 +1,4 @@
+import { AdminPortalComponent } from './admin-portal/admin-portal.component';
 import { UpdateProductsComponent } from './update-products/update-products.component';
 import { ViewProductsComponent } from './view-products/view-products.component';
 import { CreateProductsComponent } from './create-products/create-products.component';
@@ -14,5 +15,6 @@ export const routes: Routes = [
     {path:'view-orders',component:ViewOrdersComponent},
     {path:'create-product',component:CreateProductsComponent},
     {path:'view-product',component:ViewProductsComponent},
-    {path:'update-products',component:UpdateProductsComponent}
+    {path:'update-products',component:UpdateProductsComponent},
+    {path:'admin',component:AdminPortalComponent}
 ];

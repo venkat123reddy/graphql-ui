@@ -34,11 +34,11 @@ export class LoginComponent {
   ) {
 
   }
-login() {
-
-  let flag = this.userService.uservalidation(this.user); 
-  console.log(flag);
-  if(!flag) {
+  async login() {  
+  console.log("Login Componenet")
+  let flag =  await this.userService.uservalidation(this.user); 
+  console.log(flag)
+  if(!flag.validation) {
     this.errorFlag="Invalid Credentials";
     console.log("error")
   }
@@ -47,7 +47,6 @@ login() {
   this.currentUser.setDetails(this.user.customerType,this.user.userName);
   this.dialogRef.close({data:this.user})
   }
-  console.log(this.user)
   
 }
 }

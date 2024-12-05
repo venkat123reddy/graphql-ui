@@ -10,7 +10,7 @@ export class OrderServiceService {
   constructor(private http:HttpClient) { }
 
   createOrder(order:Order) {
-    this.http.post<any>('http://localhost:8080/order/create',order)
+    this.http.post<any>('http://localhost:8080/order/create',order).toPromise();
     
   }
 }

@@ -17,7 +17,7 @@
             </tr>
             <tr>
                 <td>TOTAL BILL..</td>
-                <td>0.0 $</td>
+                <td>{{TOTAL_BILL}}</td>
             </tr>
         </table>
     </div>
@@ -31,28 +31,28 @@
     <div class="container card-payment-container">
         <div class="card">
             <h3 class="card-title text-center">Payment Information</h3>
-            <form>
+            <div>
                 <!-- Card Number -->
                 <div class="mb-3">
                     <label for="cardNumber" class="form-label" style="color: green;">Card Number</label>
-                    <input type="text" class="form-control" id="cardNumber">
+                    <input [(ngModel)]="paymentCard.cardNumber" type="text" class="form-control" id="cardNumber">
                 </div>
 
                 <!-- Cardholder Name -->
                 <div class="mb-3">
                     <label for="cardholderName" class="form-label" style="color: green;">Cardholder Name</label>
-                    <input type="text" class="form-control" id="cardholderName">
+                    <input [(ngModel)]="paymentCard.cardName"type="text" class="form-control" id="cardholderName">
                 </div>
 
                 <!-- Expiration Date and CVV -->
                 <div class="row mb-3">
                     <div class="col-6">
                         <label for="expiryDate" class="form-label" style="color: green;">Expiration Date</label>
-                        <input type="month" class="form-control" id="expiryDate">
+                        <input [(ngModel)]="paymentCard.cardDate" type="date" class="form-control" id="expiryDate">
                     </div>
                     <div class="col-6">
                         <label for="cvv" class="form-label" style="color: green;">CVV</label>
-                        <input type="password" class="form-control" id="cvv">
+                        <input [(ngModel)]="paymentCard.cardCVV"type="password" class="form-control" id="cvv">
                     </div>
                 </div>
 
@@ -66,7 +66,7 @@
                 <div class="d-grid gap-2">
                     <button  class="btn btn-success" (click)="createOrder()">Pay Now</button>
                 </div>
-            </form>
+            </div>
         </div>
 
 

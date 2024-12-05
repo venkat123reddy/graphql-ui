@@ -1,1 +1,18 @@
-<p>view-products works!</p>
+<div>
+    <h2>My Products</h2>
+    <div>
+        <table>
+            <tr>
+                <th>PRODUCT NAME</th>
+                <th>PRODUCT EXPIRTY DATA</th>
+            </tr>
+            <tr *ngFor="let product of products">
+                 <td>{{product.productName}}</td>
+                 <td>{{product}}</td>
+            </tr>
+        </table>
+        <div>
+
+        </div>
+    </div>
+</div>

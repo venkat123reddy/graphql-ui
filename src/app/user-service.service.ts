@@ -26,16 +26,14 @@ export class UserServiceService {
     .subscribe(data=>{console.log(data)})
 
   }
-  uservalidation(user:any):boolean {
-    this.http.post<any>('http://localhost:8080/profile/validate',user)
-    .subscribe((data: any)=>{
-      console.log(data);
-      console.log(data.validation)
-      this.uservalidations = data.validation;
-      
-    })
-    return this.uservalidations;
+  uservalidation(user:any) {
+    
+    let data = this.http.post<any>('http://localhost:8080/profile/validate',user)
+    .toPromise();
+     console.log("service...")
+     console.log(data)
 
+     return data
   }
 
 
