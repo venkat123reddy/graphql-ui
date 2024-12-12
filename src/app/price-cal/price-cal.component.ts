@@ -39,9 +39,15 @@ export class PriceCalComponent {
       productBill.productCost = (this.quantity*this.cost);
       productBill.productName = this.productName;
       productBill.productCount = this.quantity;
+      productBill.productOwner = this.productOwner;
+      productBill.productId = this.data.productId;
+
       this.home.addProduct(productBill);
       this.prodcart.add(productBill);
       this.dialogRef.close({data:productBill})
     } 
+    cancel() {
+      this.dialogRef.close();
+    }
 
 }

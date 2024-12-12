@@ -35,9 +35,10 @@ export class RegisterComponent {
     
   }
 
-  submitForm(form: any): void {
+  
+  async submitForm(form: any) {
     console.log('Form data:', this.userDetails);
-    this.userService.createuser(this.userDetails);
+    await this.userService.createuser(this.userDetails);
     if (form.valid) {
       console.log('Form data:', this.userDetails);
     }

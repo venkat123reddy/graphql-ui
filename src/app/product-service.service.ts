@@ -17,6 +17,14 @@ export class ProductServiceService {
     .subscribe(data=>{console.log(data)})
   }
 
+  updateProduct(product:AddProduct) {
+    return this.http.put("http://localhost:8080/product/update",product).toPromise();
+  }
+
+  updateProducts(product:Product) {
+    return this.http.put("http://localhost:8080/product/update",product).toPromise();
+  }
+
   getProducts() {
      return this.http.get<any>('http://localhost:8080/product/get')
      .toPromise();

@@ -44,14 +44,13 @@ export class ProductsCartComponent {
 
       let order:Order = new Order();
       this.data.forEach(product=>{
-        order.productIds.push(product.productName)
+        order.productIds.push(product.productId)
       }) 
-       console.log("order-----")
-       console.log(order);
+      order.productbiils = this.data;
       let paymentRequest:PaymentRequest = new PaymentRequest();
       paymentRequest.paymentCard =  this.paymentCard;
       paymentRequest.totalCost = this.TOTAL_BILL;
-      paymentRequest.paymentStatus = "SUCESS"
+      paymentRequest.paymentStatus = "SUCCESS"
       order.paymentRequest = paymentRequest;
       order.customerId = this.currentUser.userId;
       console.log(order)

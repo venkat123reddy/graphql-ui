@@ -32,19 +32,19 @@
         <div class="card">
             <h3 class="card-title text-center">Payment Information</h3>
             <div>
-                <!-- Card Number -->
+             
                 <div class="mb-3">
                     <label for="cardNumber" class="form-label" style="color: green;">Card Number</label>
                     <input [(ngModel)]="paymentCard.cardNumber" type="text" class="form-control" id="cardNumber">
                 </div>
 
-                <!-- Cardholder Name -->
+                
                 <div class="mb-3">
                     <label for="cardholderName" class="form-label" style="color: green;">Cardholder Name</label>
                     <input [(ngModel)]="paymentCard.cardName"type="text" class="form-control" id="cardholderName">
                 </div>
 
-                <!-- Expiration Date and CVV -->
+                
                 <div class="row mb-3">
                     <div class="col-6">
                         <label for="expiryDate" class="form-label" style="color: green;">Expiration Date</label>
@@ -56,13 +56,13 @@
                     </div>
                 </div>
 
-                <!-- Billing Address -->
+            
                 <div class="mb-3">
                     <label for="billingAddress" class="form-label" style="color: green;">Billing Address</label>
                     <input type="text" class="form-control" id="billingAddress">
                 </div>
 
-                <!-- Payment Button -->
+            
                 <div class="d-grid gap-2">
                     <button  class="btn btn-success" (click)="createOrder()">Pay Now</button>
                 </div>
@@ -73,7 +73,6 @@
 
 </div>
 </div>
-<div>
-    Order Placed Successfully !
-</div>
 
+
+  

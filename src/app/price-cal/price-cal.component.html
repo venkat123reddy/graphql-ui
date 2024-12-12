@@ -1,4 +1,4 @@
-<mat-card class="dialog">
+<!-- <mat-card class="dialog">
     <div class="header">
         <mat-card-header color="primary">
             ADD PRODUCT
@@ -43,5 +43,123 @@
         <button mat-button color="warn">CANCEL</button>
         <button mat-button color="primary" (click)="add()">ADD</button>
     </mat-card-actions>
-</mat-card>
+</mat-card> -->
 
+<mat-card class="product-card">
+    <div>
+      <mat-card-header class="text-center bg-success text-white p-3">
+        <h3 class="m-0">ADD PRODUCT</h3>
+      </mat-card-header>
+    </div>
+  
+    <mat-card-content>
+      <!-- Quantity Input -->
+      <div class="mb-4">
+        <mat-form-field class="w-100">
+          <mat-label>Quantity</mat-label>
+          <input matInput type="number" [(ngModel)]="quantity" placeholder="Enter quantity" class="input-field">
+        </mat-form-field>
+      </div>
+  
+      <!-- Price Details Table -->
+      <div class="table-responsive">
+        <table class="table table-bordered">
+          <tbody>
+            <tr>
+              <td>Product Cost</td>
+              <td>{{ quantity * cost }} $</td>
+            </tr>
+            <tr>
+              <td>Platform Fee</td>
+              <td>{{ quantity * cost * 0.5 }} $</td>
+            </tr>
+            <tr>
+              <td class="font-weight-bold">TOTAL BILL</td>
+              <td class="font-weight-bold">{{ (quantity * cost) + (quantity * cost * 0.5) }} $</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </mat-card-content>
+  
+    <mat-card-actions class="text-center">
+      <button mat-raised-button color="warn" class="mr-2">CANCEL</button>
+      <button mat-raised-button color="primary" (click)="add()">ADD</button>
+    </mat-card-actions>
+  </mat-card>
+  
+  <!-- Custom Styles for Enhanced UI -->
+  <style>
+    .product-card {
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+  
+    .product-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    }
+  
+    .mat-card-header {
+      background-color: #4caf50;
+      color: white;
+      font-weight: bold;
+      font-size: 1.5rem;
+      padding: 15px;
+    }
+  
+    .input-field {
+      padding: 10px;
+      font-size: 1.1rem;
+      border-radius: 5px;
+      border: 1px solid #ddd;
+      transition: all 0.3s;
+    }
+  
+    .input-field:focus {
+      border-color: #4caf50;
+      outline: none;
+    }
+  
+    .table {
+      width: 100%;
+      margin-top: 15px;
+      font-size: 1.1rem;
+    }
+  
+    .table td {
+      padding: 10px;
+      vertical-align: middle;
+    }
+  
+    .font-weight-bold {
+      font-weight: bold;
+      font-size: 1.2rem;
+    }
+  
+    mat-card-actions {
+      padding: 15px;
+    }
+  
+    button {
+      width: 150px;
+    }
+  
+    mat-raised-button {
+      padding: 10px 20px;
+    }
+  
+    @media (max-width: 768px) {
+      .product-card {
+        box-shadow: none;
+        margin-top: 20px;
+      }
+  
+      .mat-card-header {
+        font-size: 1.25rem;
+        padding: 10px;
+      }
+    }
+  </style>
+  

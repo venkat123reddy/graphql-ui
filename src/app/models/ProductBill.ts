@@ -4,5 +4,6 @@ export class ProductBill{
     productCount: number| undefined;
     producBill:number| undefined;
     productOwner:string=''
+    productId:string=''
 
 }

@@ -7,6 +7,7 @@ import { ProductsViewComponent } from './products-view/products-view.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { HomePageComponent } from './home-page/home-page.component';
 import { Routes } from '@angular/router';
+import { OfferComponent } from './offer/offer.component';
 
 export const routes: Routes = [
     {path:'homepage',component:HomePageComponent},
@@ -16,5 +17,6 @@ export const routes: Routes = [
     {path:'create-product',component:CreateProductsComponent},
     {path:'view-product',component:ViewProductsComponent},
     {path:'update-products',component:UpdateProductsComponent},
-    {path:'admin',component:AdminPortalComponent}
+    {path:'admin',component:AdminPortalComponent},
+    {path:'offer',component:OfferComponent}
 ];

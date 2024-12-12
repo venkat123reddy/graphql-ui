@@ -5,7 +5,7 @@
             Farm Fresh
         </div>
         <div class="extra"></div>
-        <div>
+        <div *ngIf="customerType=='customer'">
             <button mat-icon-button (click)="cartCheck()" >
                 <mat-icon aria-hidden="false" matBadge={{prodcart.productBill.length}} >shopping_cart</mat-icon>
         </button>
@@ -32,22 +32,34 @@
             </button>
         </a>
         </div>
-        <div style="padding-bottom: 10px;">
+        <div *ngIf="customerType=='customer'" style="padding-bottom: 10px;">
             <a [routerLink]="['/products-view']">
             <button mat-button class="nav-button" (click)="sideNave()" ><mat-icon>shop</mat-icon>
                 <span>Shop</span>
         </button>
-             </a>
+        </a>
         </div>
-        <div style="padding-bottom: 10px;">
+        <div *ngIf="customerType=='customer'" style="padding-bottom: 10px;">
             <a [routerLink]="['/view-orders']">
             <button mat-button class="nav-button" (click)="sideNave()"><mat-icon>dashboard</mat-icon>
-                <span>View Orders</span>
+                <span>My Orders</span>
         </button>
 
         </a>
         </div>
-        <div style="padding-bottom: 10px;">
+
+        <div *ngIf="customerType=='vendor'" style="padding-bottom: 10px;">
+            <a [routerLink]="['/view-orders']">
+            <button mat-button class="nav-button" (click)="sideNave()"><mat-icon>dashboard</mat-icon>
+                <span>My Orders</span>
+        </button>
+
+        </a>
+        </div>
+
+
+
+        <div *ngIf="customerType=='vendor'" style="padding-bottom: 10px;">
             <a [routerLink]="['/create-product']">
             <button mat-button class="nav-button" (click)="sideNave()"><mat-icon>add_box</mat-icon>
                 <span>Add Products</span>
@@ -56,7 +68,7 @@
         </a>
         </div>
 
-        <div style="padding-bottom: 10px;">
+        <div *ngIf="customerType=='vendor'" style="padding-bottom: 10px;">
             <a [routerLink]="['/view-product']">
             <button mat-button class="nav-button" (click)="sideNave()"><mat-icon>dashboard</mat-icon>
                 <span>View Products</span>
@@ -65,20 +77,31 @@
         </a>
         </div>
 
-        <div style="padding-bottom: 10px;">
-            <a [routerLink]="['/view-orders']">
+        <div *ngIf="customerType=='vendor'" style="padding-bottom: 10px;">
+            <a [routerLink]="['/offer']">
             <button mat-button class="nav-button" (click)="sideNave()"><mat-icon>dashboard</mat-icon>
-                <span>Update Products</span>
+                <span>Add Offers</span>
+        </button>
+
+        </a>
+        </div><div *ngIf="customerType=='admin'" style="padding-bottom: 10px;">
+            <a [routerLink]="['/admin']">
+            <button mat-button class="nav-button" (click)="sideNave()"><mat-icon>dashboard</mat-icon>
+                <span>Admin DashBoard</span>
         </button>
 
         </a>
         </div>
+
+
         
         
     </mat-sidenav>
     <mat-sidenav-content>
         <div *ngIf="isLogged==false">
-            <div class="home-intro">
+            <!-- <div class="home-intro">
+
+
                 <div>🌱 <b>Welcome to Farm Fresh!</b> 🌱</div>
                 <div>
                     Your One-Stop Shop for Farm-Fresh Goodness!
@@ -101,7 +124,101 @@
 
                 </div>
                
+            </div> -->
+
+            <div class="container">
+                <div class="header">
+                    <span class="emoji">🌱</span>
+                    <b class="welcome-text">Welcome to Farm Fresh!</b>
+                    <span class="emoji">🌱</span>
+                </div>
+                <div class="description">
+                    <p>Your One-Stop Shop for Farm-Fresh Goodness!</p>
+                    <p>Bringing the best of local farms straight to your door. Fresh, organic, and healthy produce delivered with just a click!</p>
+                </div>
+                <div class="action-buttons">
+                    <div class="login-button">
+                        <button mat-flat-button (click)="login()" class="btn login-btn">Login</button>
+                    </div>
+            
+                    <div *ngIf="isregis==false" class="register-button">
+                        <button mat-flat-button (click)="register()" class="btn register-btn">Register</button>
+                    </div>
+                </div>
             </div>
+            
+            <!-- Styles -->
+            <style>
+                .container {
+                    font-family: 'Arial', sans-serif;
+                    background-color: #f3f8f2;
+                    border-radius: 8px;
+                    padding: 20px;
+                    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+                    max-width: 500px;
+                    margin: 50px auto;
+                    text-align: center;
+                }
+            
+                .header {
+                    font-size: 24px;
+                    font-weight: bold;
+                    color: #4CAF50;
+                    margin-bottom: 15px;
+                }
+            
+                .emoji {
+                    font-size: 30px;
+                }
+            
+                .welcome-text {
+                    color: #4CAF50;
+                }
+            
+                .description {
+                    font-size: 16px;
+                    color: #333;
+                    line-height: 1.5;
+                    margin-bottom: 30px;
+                }
+            
+                .action-buttons {
+                    display: flex;
+                    justify-content: center;
+                    gap: 15px;
+                }
+            
+                .btn {
+                    padding: 10px 20px;
+                    font-size: 16px;
+                    border-radius: 5px;
+                    cursor: pointer;
+                    transition: background-color 0.3s ease;
+                }
+            
+                .login-btn {
+                    background-color: #4CAF50;
+                    color: white;
+                }
+            
+                .login-btn:hover {
+                    background-color: #45a049;
+                }
+            
+                .register-btn {
+                    background-color: #FF9800;
+                    color: white;
+                }
+            
+                .register-btn:hover {
+                    background-color: #f57c00;
+                }
+            </style>
+            
+
+
+
+
 
         </div>
     <router-outlet></router-outlet>    

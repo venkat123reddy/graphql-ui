@@ -1,18 +1,74 @@
-<div>
+<!-- <div>
     <h2>My Products</h2>
     <div>
         <table>
             <tr>
                 <th>PRODUCT NAME</th>
                 <th>PRODUCT EXPIRTY DATA</th>
+                <th>PRODUCT QUANTITY</th>
+                <th>ACTION</th>
             </tr>
             <tr *ngFor="let product of products">
-                 <td>{{product.productName}}</td>
-                 <td>{{product}}</td>
+                <div *ngIf="product.productEdit==false">
+                    <td>{{product.productName}}</td>
+                    <td>{{product.productExpiryDate}}</td>
+                    <td>{{product.productQuantity}}</td>
+                    <td><button (click)="editProduct(product)" class="btn btn-primary">Edit</button></td>
+
+                </div>
+                <div *ngIf="product.productEdit==true">
+                    <td><input [(ngModel)]="product.productName"></td>
+                    <td><input [(ngModel)]="product.productExpiryDate" type="date"></td>
+                    <td><input [(ngModel)]="product.productExpiryDate"></td>
+                    <td><button class="btn btn-primary">Save</button></td>
+
+                </div>
+
+            
             </tr>
         </table>
         <div>
 
         </div>
     </div>
+</div> -->
+
+<div class="container mt-5">
+    <h2 class="mb-4">My Products</h2>
+    <div class="table-responsive">
+        <table class="table table-bordered">
+            <thead class="thead-dark">
+                <tr>
+                    <th>PRODUCT NAME</th>
+                    <th>PRODUCT EXPIRY DATE</th>
+                    <th>PRODUCT QUANTITY</th>
+                    <th>ACTION</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let product of products">
+                    <td *ngIf="!product.productEdit">{{ product.productName }}</td>
+                    <td *ngIf="!product.productEdit">{{ product.productExpiryDate }}</td>
+                    <td *ngIf="!product.productEdit">{{ product.productQuantity }}</td>
+                    <td *ngIf="!product.productEdit">
+                        <button (click)="editProduct(product)" class="btn btn-primary">Edit</button>
+                    </td>
+
+                    <td *ngIf="product.productEdit">
+                        <input [(ngModel)]="product.productName" class="form-control" />
+                    </td>
+                    <td *ngIf="product.productEdit">
+                        <input [(ngModel)]="product.productExpiryDate" type="date" class="form-control" />
+                    </td>
+                    <td *ngIf="product.productEdit">
+                        <input [(ngModel)]="product.productQuantity" class="form-control" />
+                    </td>
+                    <td *ngIf="product.productEdit">
+                        <button class="btn btn-success" (click)="saveProduct(product)">Save</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 </div>
+

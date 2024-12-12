@@ -53,8 +53,8 @@
         <label for="customerType">Customer Type</label>
         <select class="form-control" id="customerType" name="customerType" [(ngModel)]="userDetails.customerType" required>
           <option value="" disabled>Select Customer Type</option>
-          <option value="wholesale">Whole Sale</option>
-          <option value="retail">Retail</option>
+          <option value="vendor">Vendor</option>
+          <option value="customer">Customer</option>
         </select>
         <div *ngIf="userForm.controls?.['customerType']?.touched && userForm.controls?.['customerType']?.invalid" class="text-danger">
           Please select a customerType.

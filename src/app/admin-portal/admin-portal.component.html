@@ -1,9 +1,65 @@
 <div>
     <h3>ADMIN</h3>
     <div>
-    <button>ADD PRODUCTS</button>
-    <button>VIEW PRODUCTS</button>
-    <button>VIEW USERS</button>
-    <button>VIEW ORDERS</button>
+    <button (click)="view('add_product')">ADD PRODUCTS</button>
+    <button (click)="view('view_product')" >VIEW PRODUCTS</button>
+    <button (click)="view('view_users')">VIEW USERS</button>
+    <button (click)="view('view_orders')">VIEW ORDERS</button>
+    <button (click)="view('summary')">SUMMARY</button>
     </div>
+</div>
+<div *ngIf="currentView=='add_product'">
+    <div>
+        <input type="text" [(ngModel)]="refProduct.name"    placeholder="product name">
+        <button (click)="addProduct(refProduct)">ADD PRODUCTS</button>
+    </div>
+   
+   
+</div>
+<div *ngIf="currentView=='view_product'">
+    <table>
+        <tr>
+            <th>
+                Product Name
+            </th>
+            <th>
+                Action
+            </th>
+        </tr>
+        <tr *ngFor="let product of viewProduct">
+            <td>{{product.name}}</td>
+            <td><button>Delete</button></td>
+
+        </tr>
+    </table>
+    
+
+    
+   
+   
+</div>
+<div *ngIf="currentView=='view_users'">
+    <table>
+        <tr>
+            <th>
+                User Name
+            </th>
+            <th>
+                User Type
+            </th>
+            <th>
+                Action
+            </th>
+        </tr>
+        <tr *ngFor="let user of usersList">
+            <td>{{user.userName}}</td>
+            <td>{{user.customerType}}</td>
+            <td><button>Block</button></td>
+        </tr>
+    </table>
+    
+
+    
+   
+   
 </div>

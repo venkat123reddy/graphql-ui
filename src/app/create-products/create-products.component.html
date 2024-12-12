@@ -1,13 +1,13 @@
-<div class="create-product">
-    <div class="header">
+<!-- <div>
+    <div>
         <label>Add Product</label>
     </div>
     <div *ngIf="status==false">
         <span>Product Created Succesfully</span>
         <button class="btn btn-primary" (click)="add()">CLICK HERE TO ADD OTHER</button>
     </div>
-    <div class="content" *ngIf="status==true">
-        <div class="selectors" >
+    <div *ngIf="status==true">
+        <div >
             <select [(ngModel)]="product.name" style="float: right; width: 100%;">
                 <option *ngFor="let fr of fruits" selected>{{fr}}</option>
             </select>
@@ -32,4 +32,60 @@
         </div>
     </div>
 
+</div> -->
+
+<div class="container mt-5">
+    <h2 class="mb-4">Add Product</h2>
+
+    <!-- Success Message -->
+    <div *ngIf="status === false" class="alert alert-success">
+        <span>Product Created Successfully</span>
+        <button class="btn btn-primary mt-2" (click)="add()">CLICK HERE TO ADD ANOTHER</button>
+    </div>
+
+    <!-- Product Form -->
+    <div *ngIf="status === true">
+        <div>
+            <!-- Product Name (Select Fruit) -->
+            <div class="mb-3">
+                <label for="productName" class="form-label">Product Name</label>
+                <select [(ngModel)]="product.name" class="form-select" id="productName">
+                    <option *ngFor="let fr of fruits" selected>{{ fr }}</option>
+                </select>
+            </div>
+
+            <!-- Product Type -->
+            <div class="mb-3">
+                <label for="productType" class="form-label">Product Type</label>
+                <select [(ngModel)]="product.type" class="form-select" id="productType">
+                    <option value="vegetable">Vegetable</option>
+                    <option value="fruits">Fruits</option>
+                </select>
+            </div>
+
+            <!-- Product Quantity -->
+            <div class="mb-3">
+                <label for="productQuantity" class="form-label">Quantity</label>
+                <input type="number" [(ngModel)]="product.quantity" class="form-control" id="productQuantity" placeholder="Enter quantity">
+            </div>
+
+            <!-- Product Cost -->
+            <div class="mb-3">
+                <label for="productCost" class="form-label">Cost</label>
+                <input type="number" [(ngModel)]="product.cost" class="form-control" id="productCost" placeholder="Enter cost">
+            </div>
+
+            <!-- Product Expiry Date -->
+            <div class="mb-3">
+                <label for="productExpiryDate" class="form-label">Expiry Date</label>
+                <input type="date" [(ngModel)]="product.expiryDate" class="form-control" id="productExpiryDate">
+            </div>
+
+            <!-- Submit Button -->
+            <div>
+                <button type="submit" (click)="submit()" class="btn btn-success w-100">Add Product</button>
+            </div>
+        </div>
+    </div>
 </div>
+
