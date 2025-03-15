@@ -1,4 +1,4 @@
-<div>
+<!-- <div>
     <h3>ADMIN</h3>
     <div>
     <button (click)="view('add_product')">ADD PRODUCTS</button>
@@ -62,4 +62,182 @@
     
    
    
-</div>
+</div> -->
+
+
+<div class="admin-container">
+    <h3 class="admin-header">ADMIN PANEL</h3>
+    
+    <div class="admin-buttons">
+      <button (click)="view('add_product')" class="admin-btn">ADD PRODUCTS</button>
+      <button (click)="view('view_product')" class="admin-btn">VIEW PRODUCTS</button>
+      <button (click)="view('view_users')" class="admin-btn">VIEW USERS</button>
+      <button (click)="view('view_orders')" class="admin-btn">VIEW ORDERS</button>
+      <button (click)="view('summary')" class="admin-btn">SUMMARY</button>
+    </div>
+    
+    <!-- Add Product View -->
+    <div *ngIf="currentView == 'add_product'" class="admin-view">
+      <h4>Add Product</h4>
+      <div class="input-group">
+        <input type="text" [(ngModel)]="refProduct.name" class="input-field" placeholder="Enter product name">
+        <button (click)="addProduct(refProduct)" class="submit-btn">Add Product</button>
+      </div>
+    </div>
+    
+    <!-- View Products -->
+    <div *ngIf="currentView == 'view_product'" class="admin-view">
+      <h4>Products List</h4>
+      <table class="admin-table">
+        <thead>
+          <tr>
+            <th>Product Name</th>
+            <!-- <th>Action</th> -->
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let product of viewProduct">
+            <td>{{product.name}}</td>
+            <!-- <td><button class="action-btn">Delete</button></td> -->
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    
+    <!-- View Users -->
+    <div *ngIf="currentView == 'view_users'" class="admin-view">
+      <h4>User List</h4>
+      <table class="admin-table">
+        <thead>
+          <tr>
+            <th>User Name</th>
+            <th>User Type</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let user of usersList">
+            <td>{{user.userName}}</td>
+            <td>{{user.customerType}}</td>
+            <td><button class="action-btn" (click)="block(user.userName)">Block</button></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  
+  <style>
+    /* Admin Panel Container */
+    .admin-container {
+      font-family: Arial, sans-serif;
+      background-color: #f4f7fb;
+      padding: 20px;
+      border-radius: 10px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+  
+    /* Header Style */
+    .admin-header {
+      text-align: center;
+      font-size: 24px;
+      font-weight: bold;
+      color: #333;
+      margin-bottom: 30px;
+    }
+  
+    /* Button Group */
+    .admin-buttons {
+      display: flex;
+      justify-content: space-around;
+      margin-bottom: 30px;
+    }
+  
+    /* Button Style */
+    .admin-btn {
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      padding: 12px 20px;
+      text-align: center;
+      font-size: 16px;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+  
+    .admin-btn:hover {
+      background-color: #45a049;
+    }
+  
+    /* Admin View Style */
+    .admin-view {
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+  
+    .input-group {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+  
+    .input-field {
+      width: 70%;
+      padding: 10px;
+      font-size: 16px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      margin-right: 10px;
+    }
+  
+    .submit-btn {
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      padding: 12px 20px;
+      font-size: 16px;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+  
+    .submit-btn:hover {
+      background-color: #45a049;
+    }
+  
+    /* Table Style */
+    .admin-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+  
+    .admin-table th, .admin-table td {
+      padding: 12px;
+      text-align: left;
+      border-bottom: 1px solid #ddd;
+    }
+  
+    .admin-table th {
+      background-color: #f2f2f2;
+      font-weight: bold;
+    }
+  
+    /* Action Button Style */
+    .action-btn {
+      background-color: #f44336;
+      color: white;
+      border: none;
+      padding: 8px 12px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+  
+    .action-btn:hover {
+      background-color: #e53935;
+    }
+  </style>
+  

@@ -1,3 +1,4 @@
+import { ProductCarts } from './../ProductCarts';
 import { Component, Inject } from '@angular/core';
 import { ProductBill } from '../models/ProductBill';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
@@ -17,15 +18,22 @@ import { CurrentUser } from '../CurrentUser';
   styleUrl: './products-cart.component.css'
 })
 export class ProductsCartComponent {
-
+  newaddress:string='no'
+  address_boolean:boolean=false;
+  address_input:string=''
   productBills:ProductBill[];
   paymentInitiation:boolean=false;
+  delivery:boolean=false;
+  paymentSucess:boolean=false;
+  paymentBilling:boolean=true;
   TOTAL_BILL:number=0;
+  delivery_input:string=''
   paymentCard:PaymentCard;
   constructor( public dialogRef: MatDialogRef<ProductsCartComponent>,
     @Inject(MAT_DIALOG_DATA) public data:ProductBill[],
   private orderService:OrderServiceService,
-  private currentUser:CurrentUser) {
+  private productCart:ProductCarts,
+  public currentUser:CurrentUser) {
      this.productBills = data; 
      let su = 0
      this.productBills
@@ -37,12 +45,27 @@ export class ProductsCartComponent {
      
     }
 
-    addPayment() {
+    deliveryoperation() {
+
+      this.address_boolean = true
+      this.delivery = false;
+    
+    }
+    addressChange() {
+      this.address_boolean = false;
       this.paymentInitiation = true;
     }
+
+    addPayment() {
+    
+      this.delivery = true;
+      this.paymentBilling = false;
+    }
+    
     async createOrder() {
 
       let order:Order = new Order();
+      order.deliveryType = this.delivery_input;
       this.data.forEach(product=>{
         order.productIds.push(product.productId)
       }) 
@@ -54,8 +77,11 @@ export class ProductsCartComponent {
       order.paymentRequest = paymentRequest;
       order.customerId = this.currentUser.userId;
       console.log(order)
-      await this.orderService.createOrder(order);
+      let data:any = await this.orderService.createOrder(order);
       this.paymentInitiation= false
+      this.productCart.productBill = [];
+      this.paymentSucess =true;
+
       
     }
 }

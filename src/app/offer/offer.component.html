@@ -1,1 +1,56 @@
-<p>offer works!</p>
+<!-- <div>
+    <table>
+        <tr>
+            <th>PRODUCT NAME</th>
+            <th>PRODUCT QUANTITY</th>
+            <th>PRODUCT EXPIRY DATE</th>
+            <th>ACTION</th>
+        </tr>
+        <tr *ngFor="let product of products">
+            <td>
+                {{product.productName}}
+            </td>
+            <td>
+                {{product.productQuantity}}
+            </td>
+            <td>
+                {{product.productExpiryDate}}
+            </td>
+            <td *ngIf="product.productEdit==false">
+                <button (click)="editProduct(product)">Add Offer</button>
+            </td>
+            <td *ngIf="product.productEdit==true">
+                <input type="number" [(ngModel)]="product.productOffer">
+                <button (click)="addOffer(product)">Create Offer</button>
+            </td>
+        </tr>
+    </table>
+</div> -->
+
+
+<div class="container">
+    <table class="product-table">
+        <thead>
+            <tr>
+                <th class="table-header">Product Name</th>
+                <th class="table-header">Quantity</th>
+                <th class="table-header">Expiry Date</th>
+                <th class="table-header">Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let product of products">
+                <td>{{product.productName}}</td>
+                <td>{{product.productQuantity}}</td>
+                <td>{{product.productExpiryDate}}</td>
+                <td *ngIf="product.productEdit==false">
+                    <button class="btn edit-btn" (click)="editProduct(product)">Add Offer</button>
+                </td>
+                <td *ngIf="product.productEdit==true">
+                    <input class="input-field" type="number" [(ngModel)]="product.productOffer" placeholder="Enter offer">
+                    <button class="btn create-btn" (click)="addOffer(product)">Create Offer</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

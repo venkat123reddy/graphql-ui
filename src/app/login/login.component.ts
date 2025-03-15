@@ -1,3 +1,4 @@
+import { userResponse } from './userResponse';
 import { Component } from '@angular/core';
 import {MatSelectModule} from '@angular/material/select';
 import {MatInputModule} from '@angular/material/input';
@@ -24,8 +25,9 @@ export class LoginComponent {
     password:'',
     customerType:''
   } 
-
+  userR:userResponse = new userResponse();
   errorFlag:string='';
+  passchange:boolean=false;
   constructor(private userService:UserServiceService,
               private router:Router,
               private dialog :MatDialog,
@@ -42,11 +44,28 @@ export class LoginComponent {
     this.errorFlag="Invalid Credentials";
     console.log("error")
   }
+  else if(flag.loginCount==0) {
+       this.passchange = true;
+       this.userR = flag;
+       this.currentUser.setAddress(flag.address)
+       this.currentUser.setDetails(this.user.customerType,this.user.userName);
+  }
   else {
   this.errorFlag="Success"
+  this.currentUser.setAddress(flag.address)
   this.currentUser.setDetails(this.user.customerType,this.user.userName);
   this.dialogRef.close({data:this.user})
   }
   
+}
+async passwordChange() {
+
+  this.errorFlag="Success"
+  this.currentUser.setDetails(this.user.customerType,this.user.userName);
+  let data:any = this.userService.passwordUpdate(this.user);
+  this.passchange=false;
+  this.dialogRef.close({data:this.user})
+
+
 }
 }

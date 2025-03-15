@@ -31,3 +31,21 @@
     margin-right: 5px;
     width: 50%;
 }
+
+/* Make sure the body and html occupy the full height */
+html, body {
+    height: 100%;
+    margin: 0;
+  }
+  
+  /* Style the image to cover the full screen */
+  .full-screen-image {
+    position: absolute;  /* Position it absolutely */
+    top: 0;
+    left: 0;
+    width: 100%;   /* Stretch to full width */
+    height: 100vh; /* Set height to 100% of the viewport height */
+    object-fit: cover;  /* Ensure the image covers the screen, maintaining aspect ratio */
+    z-index: -1;  /* Put the image behind any content */
+  }
+  

@@ -48,7 +48,7 @@
             <tbody>
                 <tr *ngFor="let product of products">
                     <td *ngIf="!product.productEdit">{{ product.productName }}</td>
-                    <td *ngIf="!product.productEdit">{{ product.productExpiryDate }}</td>
+                    <td *ngIf="!product.productEdit">{{ product.productExpiryDate}}</td>
                     <td *ngIf="!product.productEdit">{{ product.productQuantity }}</td>
                     <td *ngIf="!product.productEdit">
                         <button (click)="editProduct(product)" class="btn btn-primary">Edit</button>

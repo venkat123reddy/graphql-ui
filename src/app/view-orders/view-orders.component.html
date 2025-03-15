@@ -70,6 +70,7 @@
                     <th>SN.</th>
                     <th>Order Name</th>
                     <th>Date</th>
+                    <th>Delivery Type</th>
                     <th>Current Status</th>
                     <!-- <th>Update Status</th> -->
                     <th>Action</th>
@@ -80,6 +81,7 @@
                     <td>{{ i + 1 }}</td>
                     <td>{{ order.orderName }}</td>
                     <td>{{order.orderCreatedDate}}</td>
+                    <td>{{order.deliveryType}}</td>
                     <td>{{ order.orderStatus }}</td>
                     <td *ngIf="order.orderStatus === 'created'">
                         <button class="btn btn-warning" (click)="cancelOrder(order)">Cancel Order</button>
@@ -98,7 +100,7 @@
                     <th>SN.</th>
                     <th>Order Name</th>
                     <th>Current Status</th>
-                    
+                    <th>Delivery Type</th>
                     <th>Action</th>
                 </tr>
             </thead>
@@ -107,6 +109,7 @@
                     <td>{{ i + 1 }}</td>
                     <td>{{ order.orderName }}</td>
                     <td>{{ order.orderStatus }}</td>
+                    <td>{{order.deliveryType}}</td>
                     <td *ngIf="order.orderStatus === 'created'">
                         <button class="btn btn-success" (click)="acceptOrder(order)">Accept Order</button>
                     </td>

@@ -5,4 +5,6 @@ export class AddProduct {
     cost:Number=0;
     expiryDate:String="";
     userId:string=""
+    description:string=''
+
 }

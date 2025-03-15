@@ -2,7 +2,7 @@
  <app-home-page></app-home-page>
 </div> -->
 
-<div class="login-form">
+<div class="login-form" *ngIf="passchange==false">
   <div class="alert alert-danger" *ngIf="errorFlag=='Invalid Credentials'">
    <span>{{errorFlag}}</span>
   </div>
@@ -27,5 +27,18 @@
       <br>
       <button style="width: 100%;height: 45px;"  (click)="login()">Login</button>
       <!-- <button style="width: 100%;height: 45px;margin-top: 20px;">Register</button> -->
+</div>
+<div *ngIf="passchange==true" class="login-form">
+  <span>Please change the password</span>
+  <mat-form-field class="field">
+    <mat-label>Password</mat-label>
+    <input matInput type="password" [(ngModel)]="user.password">
+  </mat-form-field>
+
+   <mat-form-field class="field">
+        <mat-label>Re-Password</mat-label>
+        <input matInput type="password" [(ngModel)]="user.password">
+      </mat-form-field>
+      <button style="width: 100%;height: 45px;"  (click)="passwordChange()">Change Password</button>
 </div>
 

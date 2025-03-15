@@ -1,4 +1,4 @@
-<div class="container container1 card" *ngIf="paymentInitiation==false">
+<!-- <div class="container container1 card" *ngIf="paymentInitiation==false">
     <div class="cart-header">
        <h2>CART CHECKOUT</h2> 
     </div>
@@ -25,7 +25,193 @@
         <button class="btn btn-success" (click)="addPayment()">Proceed to Payment</button>
     </div>
 
+</div> -->
+
+<div *ngIf="paymentBilling==true" class="checkout-container">
+    <div class="checkout-header">
+        <h2>CART CHECKOUT</h2>
+    </div>
+
+    <div class="checkout-table-container">
+        <table class="checkout-table">
+            <thead>
+                <tr>
+                    <th>Product</th>
+                    <th>Units</th>
+                    <th>Price</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let prod of productBills">
+                    <td>{{prod.productName}}</td>
+                    <td>{{prod.productCount}}</td>
+                    <td>{{prod.productCost}} $</td>
+                </tr>
+                <tr class="total-row">
+                    <td><strong>TOTAL BILL</strong></td>
+                    <td><strong>{{TOTAL_BILL}} $</strong></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="checkout-footer">
+        <button class="btn btn-success" (click)="addPayment()">Proceed to Delivery</button>
+    </div>
 </div>
+<div *ngIf="delivery" class="delivery-container">
+    <h3 class="delivery-heading">Select the Delivery Option</h3>
+    <div class="delivery-selection">
+      <label for="delivery-input" class="delivery-label">Delivery Type:</label>
+      <select id="delivery-input" class="delivery-dropdown" [(ngModel)]="delivery_input">
+        <option value="pickup">Pick Up</option>
+        <option value="homeDelivery">Home Delivery</option>
+      </select>
+    </div>
+    <button class="delivery-button" (click)="deliveryoperation()">Proceed to Confirm Address</button>
+  </div>
+  
+  <style>
+  .delivery-container {
+    padding: 20px;
+    margin: 20px auto;
+    max-width: 400px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    background-color: #f9f9f9;
+    text-align: center;
+  }
+  
+  .delivery-heading {
+    font-size: 1.5rem;
+    color: #333;
+    margin-bottom: 15px;
+  }
+  
+  .delivery-selection {
+    margin-bottom: 20px;
+  }
+  
+  .delivery-label {
+    display: block;
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 5px;
+  }
+  
+  .delivery-dropdown {
+    width: 100%;
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: border-color 0.3s;
+  }
+  
+  .delivery-dropdown:focus {
+    border-color: #007bff;
+    outline: none;
+  }
+  
+  .delivery-button {
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 20px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .delivery-button:hover {
+    background-color: #0056b3;
+  }
+  </style>
+  
+<!-- <div *ngIf="address_boolean==true">
+    <h2> Delivery Address</h2>
+    <div *ngIf="newaddress=='no'">
+        <input disabled [(ngModel)]="currentUser.address">
+    </div>
+    <div *ngIf="newaddress=='yes'">
+        <input [(ngModel)]='address_input'>
+    </div>
+    <br>
+    <input type="radio" name ="address" [(ngModel)]="newaddress" value="no"> Current Address 
+    <input type="radio" name ="address" [(ngModel)]="newaddress" value="yes"> New Address  
+    <button (click)="addressChange()">Procced to Payment</button>
+</div> -->
+
+
+<div *ngIf="address_boolean" class="container mt-4">
+    <div class="card shadow-sm">
+      <div class="card-header bg-primary text-white">
+        <h2 class="h4 mb-0">Delivery Address</h2>
+      </div>
+      <div class="card-body">
+        <div *ngIf="newaddress === 'no'" class="mb-3">
+          <label for="currentAddress" class="form-label">Current Address</label>
+          <input 
+            type="text" 
+            id="currentAddress" 
+            class="form-control" 
+            [(ngModel)]="currentUser.address" 
+            disabled
+          >
+        </div>
+        <div *ngIf="newaddress === 'yes'" class="mb-3">
+          <label for="newAddress" class="form-label">New Address</label>
+          <input 
+            type="text" 
+            id="newAddress" 
+            class="form-control" 
+            [(ngModel)]="address_input"
+            placeholder="Enter your new address"
+          >
+        </div>
+  
+        <div class="form-check">
+          <input 
+            class="form-check-input" 
+            type="radio" 
+            id="currentAddressRadio" 
+            name="address" 
+            [(ngModel)]="newaddress" 
+            value="no"
+          >
+          <label class="form-check-label" for="currentAddressRadio">Use Current Address</label>
+        </div>
+  
+        <div class="form-check mb-4">
+          <input 
+            class="form-check-input" 
+            type="radio" 
+            id="newAddressRadio" 
+            name="address" 
+            [(ngModel)]="newaddress" 
+            value="yes"
+          >
+          <label class="form-check-label" for="newAddressRadio">Use New Address</label>
+        </div>
+  
+        <button 
+          class="btn btn-success w-100" 
+          (click)="addressChange()">
+          Proceed to Payment
+        </button>
+      </div>
+    </div>
+  </div>
+  
+
+
+
+
+
+
 <div *ngIf="paymentInitiation==true">
     
     <div class="container card-payment-container">
@@ -48,7 +234,7 @@
                 <div class="row mb-3">
                     <div class="col-6">
                         <label for="expiryDate" class="form-label" style="color: green;">Expiration Date</label>
-                        <input [(ngModel)]="paymentCard.cardDate" type="date" class="form-control" id="expiryDate">
+                        <input [(ngModel)]="paymentCard.cardDate" type="month" class="form-control" id="expiryDate">
                     </div>
                     <div class="col-6">
                         <label for="cvv" class="form-label" style="color: green;">CVV</label>
@@ -57,10 +243,10 @@
                 </div>
 
             
-                <div class="mb-3">
+                <!-- <div class="mb-3">
                     <label for="billingAddress" class="form-label" style="color: green;">Billing Address</label>
                     <input type="text" class="form-control" id="billingAddress">
-                </div>
+                </div> -->
 
             
                 <div class="d-grid gap-2">
@@ -72,6 +258,11 @@
 
 
 </div>
+</div>
+<div class="container" *ngIf="paymentSucess==true">
+    <span class="btn btn-success">
+        Order Created successfully ! 
+    </span>
 </div>
 
 

@@ -7,4 +7,5 @@ export class Product {
     productQuantity:number=0;
     productExpiryDate: string=''
     productEdit:boolean=false;
+    productOffer:number=0;
 }

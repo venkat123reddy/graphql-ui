@@ -21,14 +21,33 @@ export class UserServiceService {
 
   createuser(user:any) {
     console.log('data');
-    let response = this.
+    return this.
     http.post<any>('http://localhost:8080/profile/create',user)
-    .subscribe(data=>{console.log(data)})
+    .toPromise()
 
+  }
+
+  passwordUpdate(user:any) {
+    
+    let data = this.http.post<any>('http://localhost:8080/profile/password',user)
+    .toPromise();
+     console.log("service...")
+     console.log(data)
+
+     return data
   }
   uservalidation(user:any) {
     
     let data = this.http.post<any>('http://localhost:8080/profile/validate',user)
+    .toPromise();
+     console.log("service...")
+     console.log(data)
+
+     return data
+  }
+  block(user:any) {
+    
+    let data = this.http.post('http://localhost:8080/profile/block/'+user,null)
     .toPromise();
      console.log("service...")
      console.log(data)

@@ -77,7 +77,8 @@
         </a>
         </div>
 
-        <div *ngIf="customerType=='vendor'" style="padding-bottom: 10px;">
+        
+        <div *ngIf="customerType=='vendorss'" style="padding-bottom: 10px;">
             <a [routerLink]="['/offer']">
             <button mat-button class="nav-button" (click)="sideNave()"><mat-icon>dashboard</mat-icon>
                 <span>Add Offers</span>
@@ -221,6 +222,10 @@
 
 
         </div>
+        <div *ngIf="isLogged == true">
+            <img src="assets\gettyimages-1450272068-612x612.jpg" alt="Home Page Image" class="full-screen-image">
+          </div>
+          
     <router-outlet></router-outlet>    
     </mat-sidenav-content>
   </mat-sidenav-container>

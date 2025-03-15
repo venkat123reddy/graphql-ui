@@ -65,8 +65,13 @@
 
             <!-- Product Quantity -->
             <div class="mb-3">
-                <label for="productQuantity" class="form-label">Quantity</label>
+                <label for="productQuantity" class="form-label">Units (LB)</label>
                 <input type="number" [(ngModel)]="product.quantity" class="form-control" id="productQuantity" placeholder="Enter quantity">
+            </div>
+
+            <div class="mb-3">
+                <label for="productDescription" class="form-label">Description</label>
+                <input type="text" [(ngModel)]="product.quantity" class="form-control" id="productDescription" placeholder="Product Description">
             </div>
 
             <!-- Product Cost -->

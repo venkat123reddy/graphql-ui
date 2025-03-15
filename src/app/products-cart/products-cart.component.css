@@ -47,3 +47,109 @@ tr {
 .card-title {
     margin-bottom: 20px;
 } */
+
+/* Checkout Container */
+.checkout-container {
+    max-width: 800px;
+    margin: 30px auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Checkout Header */
+.checkout-header h2 {
+    text-align: center;
+    color: #333;
+    font-family: 'Arial', sans-serif;
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+/* Checkout Table Container */
+.checkout-table-container {
+    margin-bottom: 20px;
+}
+
+.checkout-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: 'Arial', sans-serif;
+    margin-top: 10px;
+}
+
+.checkout-table th,
+.checkout-table td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+    font-size: 16px;
+}
+
+.checkout-table th {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.checkout-table tbody tr:hover {
+    background-color: #f1f1f1;
+}
+
+/* Total Row */
+.total-row {
+    font-weight: bold;
+    background-color: #f9f9f9;
+}
+
+.checkout-table td {
+    font-size: 16px;
+    color: #333;
+}
+
+/* Button Styling */
+.btn {
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 100%;
+}
+
+.btn-success {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+}
+
+.btn-success:hover {
+    background-color: #45a049;
+}
+
+/* Footer Section */
+.checkout-footer {
+    text-align: center;
+    margin-top: 20px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .checkout-container {
+        width: 90%;
+        padding: 15px;
+    }
+
+    .checkout-table th, .checkout-table td {
+        font-size: 14px;
+        padding: 10px;
+    }
+
+    .btn {
+        font-size: 14px;
+        padding: 8px 16px;
+    }
+
+    .checkout-header h2 {
+        font-size: 20px;
+    }
+}

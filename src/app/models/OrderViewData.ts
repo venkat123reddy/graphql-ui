@@ -3,4 +3,5 @@ export class OrderView {
  orderDate:string=''
  orderStatus:string=''
 orderCreatedDate:string=''
+deliveryType:string=''
 }

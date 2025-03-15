@@ -10,19 +10,42 @@
     <form #userForm="ngForm" (ngSubmit)="submitForm(userForm)">
    
       <div class="form-group">
-        <label for="name">Name</label>
-        <input type="text" class="form-control" id="name" name="name" [(ngModel)]="userDetails.name" required>
+        <label for="customerType">Customer Type</label>
+        <select class="form-control" id="customerType" name="customerType" [(ngModel)]="userDetails.customerType" required>
+          <option value="" disabled>Select Customer Type</option>
+          <option value="vendor">Vendor</option>
+          <option value="customer">Customer</option>
+        </select>
+        <div *ngIf="userForm.controls?.['customerType']?.touched && userForm.controls?.['customerType']?.invalid" class="text-danger">
+          Please select a customerType.
+        </div>
+      </div>
+
+
+
+      <div class="form-group">
+        <label for="name">First Name</label>
+        <input type="text" class="form-control" id="name" name="name" [(ngModel)]="userDetails.firstName" required>
         <div *ngIf="userForm.controls?.['name']?.touched && userForm.controls?.['name']?.invalid" class="text-danger">
           Name is required.
         </div>
       </div>
-      
+      <div class="form-group">
+        <label for="name">Last Name</label>
+        <input type="text" class="form-control" id="name" name="name" [(ngModel)]="userDetails.lastName" required>
+      </div>
+
       <div class="form-group">
         <label for="email">Email</label>
         <input type="email" class="form-control" id="email" name="email" [(ngModel)]="userDetails.email" required email>
         <div *ngIf="userForm.controls?.['email']?.touched && userForm.controls?.['email']?.invalid" class="text-danger">
           Please enter a valid email address.
         </div>
+      </div>
+
+      <div class="form-group">
+        <label for="ssn">SSN</label>
+        <input type="text" class="form-control" id="ssn" name="ssn" [(ngModel)]="userDetails.SSN" required>
       </div>
   
       <div class="form-group">
@@ -45,20 +68,12 @@
         <label for="password">Password</label>
         <input type="password" class="form-control" id="password" name="password" [(ngModel)]="userDetails.password" required [maxLength]="15" minlength="8">
         <div *ngIf="userForm.controls?.['password']?.touched && userForm.controls?.['password']?.invalid" class="text-danger">
-          Please enter a valid age.
+          Please enter a valid password.
         </div>
       </div>
   
-      <div class="form-group">
-        <label for="customerType">Customer Type</label>
-        <select class="form-control" id="customerType" name="customerType" [(ngModel)]="userDetails.customerType" required>
-          <option value="" disabled>Select Customer Type</option>
-          <option value="vendor">Vendor</option>
-          <option value="customer">Customer</option>
-        </select>
-        <div *ngIf="userForm.controls?.['customerType']?.touched && userForm.controls?.['customerType']?.invalid" class="text-danger">
-          Please select a customerType.
-        </div>
+      <div *ngIf="submitMessage">
+        <span class="text-danger">{{submitMessage}}</span>
       </div>
 
       <button type="submit" class="btn btn-success" style="width:100%;margin-top: 20px;">Submit</button>

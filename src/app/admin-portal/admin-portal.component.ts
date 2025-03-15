@@ -5,6 +5,7 @@ import { AdminServiceService } from '../admin-service.service';
 import { FormsModule } from '@angular/forms';
 import { User } from './User';
 import { OrderServiceService } from '../order-service.service';
+import { UserServiceService } from '../user-service.service';
 
 @Component({
   selector: 'app-admin-portal',
@@ -20,7 +21,8 @@ export class AdminPortalComponent {
   usersList:User[]=[];
 
   constructor(private adminService:AdminServiceService,
-    private orderService:OrderServiceService
+    private orderService:OrderServiceService,
+    private userService:UserServiceService
   ) {
     this.getProduct();
     this.getUsers();
@@ -36,17 +38,26 @@ export class AdminPortalComponent {
   }
   view(inp:any) {
     this.currentView = inp
+    this.getProduct()
+    this.getOrders()
   }
 
   async getProduct() {
-    let data:any = await this.adminService.getPorduct("abc");
+    let data:any = await this.adminService.getPorductS("abc");
     this.viewProduct =data;
   }
 
-  
+  async block(user:any) {
+    let data:any = await this.userService.block(user);
+  }
+
+  // deleteProduct(product:any) {
+  //   this.viewProduct.
+  // }
   async addProduct(products:any) {
     this.refProduct.type="product"
     let data:any  = await this.adminService.addPorduct(this.refProduct);
+    this.refProduct = new RefDataProduct();
 
   }
 
